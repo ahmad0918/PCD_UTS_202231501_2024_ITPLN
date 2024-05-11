@@ -164,6 +164,21 @@ print("Ambang Batas Terkecil hingga Terbesar:"): Mencetak pesan untuk memberi ta
 
 print(sorted_thresholds): Mencetak ambang batas yang telah diurutkan.
 
+## Histogram
+untuk menampilkan histogram pada gambar cukup lakukan code pada gambar dibawah ini lalu hasilnya kan seperti ini :
 
+### Hasil Histogram
+![App Screenshot](./Screenshots/histogram.png)
+
+### Penjelasan
+- Cara 1 menggunakan hist():
+axs[0,0].imshow(img): Ini menampilkan gambar asli pada subplot (0,0).
+axs[0,1].hist(img.ravel(),256,[0,256]): Ini menghitung dan menampilkan histogram gambar menggunakan fungsi hist() dari matplotlib. img.ravel() digunakan untuk meratakan array gambar menjadi satu dimensi. Argumen lainnya adalah jumlah bin (256) dan rentang nilai (0-256).
+
+
+- Cara 2 menggunakan calcHist():
+hist = cv2.calcHist([img],[0],None,[256],[0,256]): Ini menghitung histogram gambar menggunakan fungsi calcHist() dari OpenCV. Argumen pertama adalah daftar gambar, argumen kedua adalah indeks saluran warna (0 untuk grayscale), argumen ketiga adalah mask (None untuk gambar lengkap), argumen keempat adalah jumlah bin, dan argumen kelima adalah rentang nilai.
+axs[1,0].imshow(img): Menampilkan gambar asli pada subplot (1,0).
+axs[1,1].plot(hist): Ini menampilkan plot histogram yang telah dihitung menggunakan calcHist().
 
 # Selesai :)
